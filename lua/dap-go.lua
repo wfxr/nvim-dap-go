@@ -53,14 +53,7 @@ local function get_build_flags(config)
 end
 
 local function filtered_pick_process()
-  local opts = {}
-  vim.ui.input(
-    { prompt = "Search by process name (lua pattern), or hit enter to select from the process list: " },
-    function(input)
-      opts["filter"] = input or ""
-    end
-  )
-  return require("dap.utils").pick_process(opts)
+  return require("dap.utils").pick_process()
 end
 
 local function setup_delve_adapter(dap, config)
